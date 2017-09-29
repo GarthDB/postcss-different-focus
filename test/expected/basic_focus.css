@@ -1,0 +1,6 @@
+.dood.is-keyboardfocused, .dood:focus {
+  content: 'nope';
+}
+.dood.is-mousefocused, .dood:focus {
+  content: 'yerp';
+}
