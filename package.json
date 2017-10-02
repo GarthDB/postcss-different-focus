@@ -10,6 +10,7 @@
     "lint": "eslint ./src",
     "test": "ava",
     "coverage": "nyc npm test",
+    "validate": "npm run lint && npm run atomdoc && npm run coverage",
     "report-coverage": "nyc report -r lcovonly && codecov"
   },
   "repository": {
