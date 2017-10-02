@@ -1,4 +1,6 @@
-# postcss-different-focus
+# PostCSS Different Focus
+
+[![Build Status](https://travis-ci.org/GarthDB/postcss-different-focus.svg?branch=master)](https://travis-ci.org/GarthDB/postcss-different-focus) [![codecov](https://codecov.io/gh/GarthDB/postcss-different-focus/branch/master/graph/badge.svg)](https://codecov.io/gh/GarthDB/postcss-different-focus) [![Dependency Status](https://david-dm.org/GarthDB/postcss-different-focus.svg)](https://david-dm.org/GarthDB/postcss-different-focus) [![Inline docs](http://inch-ci.org/github/GarthDB/postcss-different-focus.svg?branch=master)](http://inch-ci.org/github/GarthDB/postcss-different-focus) [![npm version](https://badge.fury.io/js/postcss-different-focus.svg)](https://badge.fury.io/js/postcss-different-focus)
 
 A PostCSS plugin to create a syntax for different types of input focus.
 
