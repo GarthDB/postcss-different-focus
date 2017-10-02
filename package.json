@@ -4,7 +4,13 @@
   "description": "A PostCSS plugin to create a syntax for different types of input focus.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "ava"
+    "compile": "babel -d lib/ src/",
+    "prepublish": "npm run compile && npm run atomdoc && npm run lint",
+    "atomdoc": "atomdoc src/",
+    "lint": "eslint ./src",
+    "test": "ava",
+    "coverage": "nyc npm test",
+    "report-coverage": "nyc report -r lcovonly && codecov"
   },
   "repository": {
     "type": "git",

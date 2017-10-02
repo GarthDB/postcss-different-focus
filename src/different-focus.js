@@ -1,24 +1,34 @@
 import parser from 'postcss-selector-parser';
 
+const keyRegEx = /:keyboardfocus/g;
+const mouseRegEx = /:mousefocus/g;
+
 export default class TopcoatNaming {
-  constructor(css, result, opts) {
+  /**
+   *  Public: adds classes to differentiate between mouse and keyboard focii.
+   *
+   *  * `css` {Root} PostCSS Root Node
+   *
+   *  ## Examples
+   *
+   *  ```js
+   *  export default postcss.plugin('postcss-different-focus',
+   *    (opts = {}) =>
+   *      (css) => {
+   *        return new DifferentFocus(css, opts)
+   *      }
+   *    );
+   *  ```
+   *
+   *  Returns {Root} PostCSS Root Node
+   */
+  constructor(css) {
     this.opts = opts;
-    css.walkRules(/:keyboardfocus/g ,rule => {
-      const transform = selectors => {
-        selectors.walkPseudos(pseudo => {
-          const newPseudo = pseudo.clone();
-          newPseudo.value = ':focus';
-          return pseudo.replaceWith(newPseudo);
-          // const match = /(\.?[A-z]+):keyboardfocus/g.exec(String(selector));
-          // if(match) {
-          //   if(match[1]) {
-          //     console.log(match[1]);
-          //   }
-          // }
-        });
-      };
-      const processor = parser(transform);
-      rule.selector = processor.processSync(rule.selector);
+    css.walkRules(keyRegEx ,rule => {
+      rule.selector = `${rule.selector.replace(keyRegEx, '.is-keyboardfocused')}, ${rule.selector.replace(keyRegEx, ':focus')}`;
+    });
+    css.walkRules(mouseRegEx ,rule => {
+      rule.selector = `${rule.selector.replace(mouseRegEx, '.is-mousefocused')}, ${rule.selector.replace(mouseRegEx, ':focus')}`;
     });
   }
 }

@@ -14,16 +14,14 @@ test('Collapse state', (t) => {
   }
   .dood:mousefocus {
     content: 'yerp';
-  }
-`;
+  }`;
   const expected =
   `.dood.is-keyboardfocused, .dood:focus {
     content: 'nope';
   }
   .dood.is-mousefocused, .dood:focus {
     content: 'yerp';
-  }
-`;
+  }`;
   return runDifferentFocus(input)
     .then((result) => {
       t.deepEqual(result.css.trim(), expected);
