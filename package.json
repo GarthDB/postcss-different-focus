@@ -1,0 +1,60 @@
+{
+  "name": "postcss-different-focus",
+  "version": "0.1.0",
+  "description": "A PostCSS plugin to create a syntax for different types of input focus.",
+  "main": "lib/index.js",
+  "scripts": {
+    "compile": "babel -d lib/ src/",
+    "prepublish": "npm run compile && npm run atomdoc && npm run lint",
+    "atomdoc": "atomdoc src/",
+    "lint": "eslint ./src",
+    "test": "ava",
+    "coverage": "nyc npm test",
+    "validate": "npm run lint && npm run atomdoc && npm run coverage",
+    "report-coverage": "nyc report -r lcovonly && codecov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GarthDB/postcss-different-focus.git"
+  },
+  "keywords": [
+    "postcss",
+    "focus"
+  ],
+  "nyc": {
+    "include": [
+      "src/*.js"
+    ],
+    "require": [
+      "babel-register"
+    ]
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ]
+  },
+  "author": "Garth Braithwaite <garthdb@gmail.com> (http://garthdb.com)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/GarthDB/postcss-different-focus/issues"
+  },
+  "homepage": "https://github.com/GarthDB/postcss-different-focus#readme",
+  "devDependencies": {
+    "atomdoc-cli": "^1.1.0",
+    "ava": "^0.22.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "codecov": "^2.3.0",
+    "eslint": "^4.7.2",
+    "nyc": "^11.2.1"
+  },
+  "dependencies": {
+    "postcss": "^6.0.12"
+  }
+}
