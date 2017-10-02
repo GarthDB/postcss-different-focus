@@ -54,7 +54,6 @@
     "nyc": "^11.2.1"
   },
   "dependencies": {
-    "postcss": "^6.0.12",
-    "postcss-selector-parser": "3.0.0-rc.0"
+    "postcss": "^6.0.12"
   }
 }
